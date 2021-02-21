@@ -1,0 +1,99 @@
+@mixin centerFlex
+  display: flex
+  align-items: center
+  justify-content: center
+
+$back-color: #eefbfb
+$base-color: #4da8da
+$inactive-color: #aaa
+$selected-color: #ddd
+$faded-color: #bbb
+
+#todo 
+  display: flex
+  flex-direction: column
+  margin: auto
+  max-width: 500px
+  height: 100%
+  background-color: $back-color
+
+  .title
+    @include centerFlex
+    background-color: $base-color
+    font-size: 1.4em
+    padding: 20px
+    margin: 0
+
+
+  .header
+    @include centerFlex
+    padding: 5px
+    background-color: $base-color
+    button
+      border: none
+      background: none
+      font-size: 1.2em
+      margin: 5px
+      cursor: pointer
+
+      &:focus
+        outline: none
+
+      &.selected
+        color: $selected-color
+
+      &:not(.selected)
+        color: $faded-color
+        user-select: none
+
+  .actions
+    display: flex
+    background-color: $back-color
+    padding: 5px 30px 0 30px
+    height: 34px
+
+    input
+      flex: 10
+    
+
+  .content
+    display: flex
+    flex-direction: column
+    background-color: $back-color
+
+  .task
+    display: flex
+    align-items: center
+    background-color: $base-color
+    height: 50px
+    margin: 15px 10px 0 10px
+    &.checked,&.archived
+      background-color: $inactive-color
+
+    input
+      flex: 1
+      height: 60%
+      margin: 3px 0
+
+  .btn
+
+    width: 26px
+    height: 26px
+    margin: 3px
+    border: none
+    outline: none
+    cursor: pointer
+    &.trash
+      background: url("img/trash.svg") no-repeat
+      margin: 5px
+    &.add
+      background: url("img/add.png") no-repeat
+    &.check
+      background: url("img/unchecked-checkbox.png") no-repeat
+    &.check:hover
+      background: url("img/checked-checkbox.png") no-repeat
+    &.archive
+      background: url("img/archive.png") no-repeat
+    &.undo
+      background: url("img/undo.png") no-repeat
+
